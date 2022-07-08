@@ -1,0 +1,148 @@
+﻿<Page x:Class="Cookbook.Mod"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cookbook"
+      mc:Ignorable="d" 
+      d:DesignHeight="880" d:DesignWidth="576"
+      Title="Mod">
+
+    <Grid>
+        <Label Content="Back" HorizontalAlignment="Left" Margin="45,215,0,5.246"
+               FontSize="22"></Label>
+        <Grid Name="mainGrid">
+            <!--Button Content="Hello" Height="124.506" FontSize="36" Background="#9c3828"  
+                Foreground="#c29a3a" BorderBrush="#c29a3a" BorderThickness="3"
+                Margin="0,0,384,755.246" HorizontalAlignment="Right" Width="192"/-->
+            <Rectangle Fill="#9c3828" Height="124.506" VerticalAlignment="Top" Stroke="#c29a3a" 
+                   StrokeThickness="3.5"/>
+            <Viewbox Stretch="Uniform" VerticalAlignment="Top" Margin="100,0" Height="125" HorizontalAlignment="Center">
+                <TextBlock Name="modTitle"  FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Foreground="#c29a3a" TextWrapping="Wrap">Food Title</TextBlock>
+            </Viewbox>
+            <Button Content="Rename" Background="BlanchedAlmond" BorderBrush="#c29a3a" Foreground="#c29a3a" BorderThickness="3" FontStyle="Oblique"
+                    Margin="495,50,10,795.246" RenderTransformOrigin="0.427,0.708" FontSize="16"
+                    Style="{StaticResource CustomButtonStyle}" Click="Button_Click">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+
+            <Button x:Name="cookbookPageButton" Content="" HorizontalAlignment="Left" Margin="38,155,0,0" 
+                VerticalAlignment="Top" Width="65" Height="65" BorderThickness="0" 
+                Style="{StaticResource CustomButtonStyle}" Click="cookbookPageButton_Click" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <Button.Background>
+                    <ImageBrush x:Name="cookbookPageButtonImageBrush" ImageSource="{StaticResource backButton}"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Change?" FontSize="56" FontWeight="Medium" HorizontalAlignment="Center" Margin="151.0988"/>
+
+            <StackPanel Margin="0,230,0,0" Height="604">
+                <Button Name="ingButton" Content="Ingredients" FontWeight ="Medium" Height="75" Width="375" FontSize="32"
+                    Background="White" HorizontalAlignment="Center" Margin="0,50,0,80"
+                    Style="{StaticResource CustomButtonStyle}" Click="ingButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+
+                <Button Name="equipButton" Content="Equipment" FontWeight ="DemiBold" Height="75" Width="375" FontSize="32"
+                    Background="White" HorizontalAlignment="Center" Margin="0,0,0,80"
+                    Style="{StaticResource CustomButtonStyle}" Click="equipButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Name="stepsButton" Content="Steps" FontWeight ="DemiBold" Height="75" Width="376" FontSize="32"
+                    Background="White" HorizontalAlignment="Center" Margin="0,0,0,80"
+                    Style="{StaticResource CustomButtonStyle}" Click="stepsButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="60" Margin="0,0">
+                    
+
+                    <Button Name="cancelButton" Content="Cancel" FontWeight ="DemiBold" Width="200"
+                        Background="Red"  Margin="0,0,80,0" FontSize="32"
+                        Style="{StaticResource CustomButtonStyle}" Click="cancelButton_Click">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                    </Button>
+                    <Button Name="saveButton" Content="Save" FontWeight ="DemiBold" Width="200" Margin="0,0,0,0" FontSize="32"
+                        Style="{StaticResource CustomButtonStyle}" Background="LightGreen" BorderBrush="#FF13DB95" Click="saveButton_Click">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <!--Label Content="MODIFICATION" FontSize="72" VerticalAlignment="Center" HorizontalAlignment="Center"/-->
+        </Grid>
+
+
+        <Grid>
+            <Label Name="Explaination" Content="*Any changes will create another recipe in the personal list!*"
+                   FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,350"
+                   FontStyle="Italic"/>
+            <Border Name="modBox"  Background="#FF9C3828" Margin="96,265,96,215.246" CornerRadius="20" 
+                BorderBrush="#FFC29A3A" BorderThickness="2" Visibility="Hidden">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="14*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Please enter a name for this recipe" FontSize="28" Foreground="#c29a3a" Margin="46,46,40.754,50.692" Grid.RowSpan="2" />
+                    <TextBox Name="foodBox" Text="Food Title" AcceptsReturn="False" 
+                         TextWrapping="NoWrap" FontSize="24" HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center" Margin="50,123,50,121.431" />
+
+                    <Button Name="Done" Content="Done" FontWeight ="DemiBold" Width="200" FontSize="16"
+                            HorizontalAlignment="Center" Height="50" 
+                            Style="{StaticResource CustomButtonStyle}" Background="LightGreen" BorderBrush="#FF13DB95"  Click="Confirm_Click" Margin="92,223,88.308,19.431"/>
+                    <Button Name="Cancel" Content="Cancel" FontWeight ="DemiBold" Height="50" Width="200"
+                        Background="Red"  HorizontalAlignment="Center" FontSize="16" Margin="92,5.569,88.308,48.554"
+                        Style="{StaticResource CustomButtonStyle}" Click="Cancel_Click" Grid.Row="1"/>
+                    <Label Name="error" Foreground="yellow" FontSize="16" VerticalAlignment="Center"
+                           Content="*Please do not leave blank*" HorizontalAlignment="Center" Margin="0,90,0,0"
+                           Visibility="Hidden"/>
+                </Grid>
+                
+
+            </Border>
+            <Border Name="unsavedPopup"  Background="#FF9C3828" HorizontalAlignment="Center" VerticalAlignment="Center"
+                CornerRadius="20"  Width="300" Height="300"
+                BorderBrush="#FFC29A3A" BorderThickness="2" Visibility="Hidden">
+                <Grid>
+                    <Label Name="unsavedLabel" Content="Are you sure?" FontSize="36" 
+                       Margin="0,20,0,0" FontWeight="DemiBold" 
+                       HorizontalAlignment="Center" Foreground="#FFC29A3A"/>
+                    <TextBlock Name="unsavedStepText" Text="*Leave changes unsaved?*" 
+                       FontSize="24" Margin="10,88,6.123,158.123" TextWrapping="Wrap"
+                       HorizontalAlignment="Center" Foreground="Yellow" Width="280"/>
+                    <Button Name="unsavedYesButton" Content="Yes" Click="unsavedYesButton_Click"
+                        FontWeight ="DemiBold" Height="57" FontSize="32"
+                            Style="{StaticResource CustomButtonStyle}"
+                        Background="LightGreen" BorderBrush="#FF13DB95" 
+                        VerticalAlignment="Bottom" Margin="160.123,0,5,43.123"/>
+                    <Button Name="unsaved_noButton" Content="No"   
+                        FontWeight ="DemiBold" Height="57" FontSize="32"
+                            Style="{StaticResource CustomButtonStyle}"
+                        Background="Red" BorderBrush="#FF13DB95" Click="unsaved_noButton_Click"
+                        VerticalAlignment="Bottom" Margin="5,0,160.123,43.123" />
+                </Grid>
+
+            </Border>
+            
+
+            <Label Name="error1" Foreground="Red" FontSize="16" VerticalAlignment="Center"
+                           Content= "*Name is already in your personal list, please rename!*" HorizontalAlignment="Center" Margin="0,123,0,725.246"
+                           Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,27 @@
+﻿<Page x:Class="Cookbook.SearchPageResults"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cookbook"
+      mc:Ignorable="d" 
+      d:DesignHeight="880" d:DesignWidth="576"
+      Title="SearchPageResults" Loaded="Page_Loaded">
+
+    <Grid>
+        <Button Content="Edit Search" HorizontalAlignment="Left" Margin="174,0,0,0" VerticalAlignment="Top" Width="249" Height="54" Background="#FFAF413B" Click="EditSearch_Click" FontSize="36" Style="{StaticResource CustomButtonStyle}" RenderTransformOrigin="0.725,-0.293"/>
+        <ScrollViewer Name="scroller" Height="auto" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" Margin="0,214,0,0">
+            <StackPanel Name="Recipes" Height="auto" Width="auto">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type local:ResultsRecipe}">
+                        <Setter Property="Margin" Value="0,0,0,15"/>
+                    </Style>
+                </StackPanel.Resources>
+                <!--local:CookbookRecipes Dur="10mins" DiffImage="Images/easyIcon.png" Title="blah"/-->
+            </StackPanel>
+        </ScrollViewer>
+        <Rectangle Fill="#FFAF413B" HorizontalAlignment="Left" Height="6" Margin="54,208,0,0" VerticalAlignment="Top" Width="486" RadiusY="4.833" RadiusX="4.833"/>
+        <TextBlock x:Name="errorMsg" HorizontalAlignment="Left" Margin="157,322,0,0" TextWrapping="Wrap" Text="Your search gave back no recipes! Try editing your search?" VerticalAlignment="Top" Height="188" Width="285" FontSize="36" Visibility="Hidden"/>
+        <local:SortBar x:Name="sortBar" HorizontalAlignment="Left" Margin="174,76,0,0" VerticalAlignment="Top" Height="100" Width="211"  />
+    </Grid>
+</Page>
